@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Putinov troll starter pack">
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by knedle (http://jsbin.com/ruwigid/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style id="jsbin-css">
+#capture { width: 400px; }
+
+#captureFull { width: 410px; }
+</style>
+</head>
+<body>
+  <div id="captureFull">
+    <h2>Putinov troll starter pack</h2>
+    <div id="capture">
+  <label><input type="checkbox">Nesúhlasím s vojnou, ale...</input></label><br>
+<label><input type="checkbox">Aj mne je ľúto tých ľudí, ale...</input></label><br>
+<label><input type="checkbox">Neobhajujem Putina vo všetkom, ale...</input></label><br>
+<label><input type="checkbox">Každá minca má dve strany</input></label><br>
+<label><input type="checkbox">Pravda je niekde uprostred</input></label><br>
+<label><input type="checkbox">Akcia vyvoláva reakciu</input></label><br>
+<label><input type="checkbox">Pozri si video s prof. Staněkom</input></label><br>
+<label><input type="checkbox">Keď umierali ľudia na Donbase, to si si nevšímal? </input></label><br>
+<label><input type="checkbox">Veci nie sú čiernobiele</input></label><br>
+<label><input type="checkbox">Videl si, koľko má Amerika základní? </input></label><br>
+<label><input type="checkbox">Ty veríš našim médiám? </input></label><br>
+<label><input type="checkbox">Aj americký plukovník povedal, že...</input></label><br>
+<label><input type="checkbox">Tak prestaň kúriť ruským plynom</input></label><br>
+<label><input type="checkbox">Keď hovoríš A, povedz aj B</input></label><br>
+<label><input type="checkbox">Čo si myslíš o bombardovaní Juhoslávie? </input></label><br>
+<label><input type="checkbox">Prečo tam Američania platili tie laboratória? </input></label><br>
+<label><input type="checkbox">Doštuduj si, kto to boli banderovci </input></label><br>
+<label><input type="checkbox">A kde zrazu zmizol covid?</input></label><br>
+<label><input type="checkbox">Jedného dňa možno pochopíš</input></label><br>
+<label><input type="checkbox">Raz sa ukáže, ako to celé bolo </input></label><br>
+</div>
+
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s 'Putinov...' " />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<a id="downloadLink"></a>
+<p>by <a href="https://www.instagram.com/p/CbODXEZLEmv/">Vladimir Snidl</a></p>
+  
+<script>
+$(document).ready(function(){
+  
+  $("input[type=checkbox]").on('change', function(){
+    
+    if ($(this).is(':checked')){      
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+$("#downloadImg").on('click', function() {
+  
+html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'putinov-troll-starter-pack.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});
+  
+$("#downloadImgFull").on('click', function() {
+  
+html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'putinov-troll-starter-pack.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});  
+  
+  });
+</script>
+<script src="https://static.jsbin.com/js/render/edit.js?4.1.8"></script>
+<script>jsbinShowEdit && jsbinShowEdit({"static":"https://static.jsbin.com","root":"https://jsbin.com"});</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1656750-34', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

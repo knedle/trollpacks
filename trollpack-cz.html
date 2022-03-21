@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Nejobvyklejší praktiky dezinformátorů v diskuzích">
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by knedle (http://jsbin.com/maqamal/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style id="jsbin-css">
+#capture { width: 400px; }
+
+#captureFull { width: 410px; }
+</style>
+</head>
+<body>
+  <div id="captureFull">
+    <h2>Nejobvyklejší praktiky dezinformátorů v diskuzích:</h2>
+    <div id="capture">
+<label><input type="checkbox">Nesouhlasím s válkou, ale…</input></label><br>
+<label><input type="checkbox">Je mi těch lidí taky líto, ale…</input></label><br>
+<label><input type="checkbox">Nebráním Putina ve všem, ale…</input></label><br>
+<label><input type="checkbox">Každá mince má dvě strany …</input></label><br>
+<label><input type="checkbox">Pravda je někde uprostřed …</input></label><br>
+<label><input type="checkbox">Každá akce vyvolává reakci …</input></label><br>
+<label><input type="checkbox">Když na Donbasu umírali lidi, to ses nezajímal, viď?</input></label><br>
+<label><input type="checkbox">Věci nejsou černobílé …</input></label><br>
+<label><input type="checkbox">Viděl jsi, kolik má Amerika vojenských základen?</input></label><br>
+<label><input type="checkbox">Ty věříš našim médiím?</input></label><br>
+<label><input type="checkbox">I ten a ten odborník/analytik to řekl…</input></label><br>
+<label><input type="checkbox">Tak přestaň topit ruským plynem!</input></label><br>
+<label><input type="checkbox">Když řekneš A, řekni taky B …</input></label><br>
+<label><input type="checkbox">Co si myslíš o bombardování Jugoslávie?</input></label><br>
+<label><input type="checkbox">Proč tam Američané platili ty laboratoře?</input></label><br>
+<label><input type="checkbox">Zjisti si, kdo to byli banderovci …</input></label><br>
+<label><input type="checkbox">A kam najednou zmizel covid?</input></label><br>
+<label><input type="checkbox">Jednou to možná pochopíš …</input></label><br>
+<label><input type="checkbox">Jednou se ukáže, jak to všechno bylo …</input></label><br>
+<label><input type="checkbox">Mám známého a ten viděl/slyšel/zažil….</input></label><br>
+</div>
+
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s 'Nejobvyklejší...' " />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<a id="downloadLink"></a>
+<p>by <a href="https://www.instagram.com/p/CbODXEZLEmv/">Vladimir Snidl</a> + 
+<a href="https://www.visegradsky-jezdec.cz/putin-trolls-starter-pack-podle-zuzany-caputove/">Visegradský jezdec</a></p>
+  
+<script>
+$(document).ready(function(){
+  
+  $("input[type=checkbox]").on('change', function(){
+    
+    if ($(this).is(':checked')){      
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+$("#downloadImg").on('click', function() {
+  
+html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'nejobvyklejsi-praktiky-dezinformatoru-ukrajina.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});
+  
+$("#downloadImgFull").on('click', function() {
+  
+html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'putinov-troll-starter-pack.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});  
+  
+  });
+</script>
+<script src="https://static.jsbin.com/js/render/edit.js?4.1.8"></script>
+<script>jsbinShowEdit && jsbinShowEdit({"static":"https://static.jsbin.com","root":"https://jsbin.com"});</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1656750-34', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
