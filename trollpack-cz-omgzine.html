@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Nejobvyklejší praktiky dezinformátorů v diskuzích">
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by knedle (http://jsbin.com/maqamal/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>Nejobvyklejší praktiky dezinformátorů v diskuzích</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style id="jsbin-css">
+#capture { width: 400px; }
+
+#captureFull { width: 410px; }
+</style>
+</head>
+<body>
+  <div id="captureFull">
+    <h2>Nejobvyklejší praktiky dezinformátorů v diskuzích:</h2>
+    <div id="capture">
+<label><input type="checkbox">Musíme přimět válčící strany, aby zasedly k jednacímu stolu.</input></label><br>
+<label><input type="checkbox">Musíme přestat dodávat Ukrajině zbraně, které zabíjí.</input></label><br>
+<label><input type="checkbox">Je nám líto každého, úplně každého, života ztraceného na Ukrajině.</input></label><br>
+<label><input type="checkbox">Nedovolíme posílat svého syna do války, která není naše.</input></label><br>
+<label><input type="checkbox">Válku chce Brusel a Západ, který na válce bohatne.</input></label><br>
+<label><input type="checkbox">Rusko není nepřítel, vždyť jsme Slované.</input></label><br>
+<label><input type="checkbox">Rusko se jen brání rozpínavému Západu.</input></label><br>
+<label><input type="checkbox">Nejsme pro-ruský ani pro-americký, uznáváme politiku všech azimutů.</input></label><br>
+<label><input type="checkbox">Chceme vystoupit z NATO.</input></label><br>
+<label><input type="checkbox">Chceme být neutrální.</input></label><br>
+</div>
+
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s 'Nejobvyklejší...' " />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<a id="downloadLink"></a>
+<p>by <a href="https://www.instagram.com/p/CbODXEZLEmv/">Vladimir Snidl</a> + 
+<a href="https://www.visegradsky-jezdec.cz/putin-trolls-starter-pack-podle-zuzany-caputove/">Visegradský jezdec</a></p>
+  
+<script>
+$(document).ready(function(){
+  
+  $("input[type=checkbox]").on('change', function(){
+    
+    if ($(this).is(':checked')){      
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+$("#downloadImg").on('click', function() {
+  
+html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'nejobvyklejsi-praktiky-dezinformatoru-ukrajina.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});
+  
+$("#downloadImgFull").on('click', function() {
+  
+html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'putinov-troll-starter-pack.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});  
+  
+  });
+</script>
+
+</body>
+</html>
