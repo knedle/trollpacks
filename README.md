@@ -2,9 +2,9 @@
 cz + sk putins troll packs choices
 
 v provozu: 
-* https://knedle.github.io/trollpacks/trollpack-cz.html
-* https://knedle.github.io/trollpacks/trollpack-sk.html
-* https://knedle.github.io/trollpacks/trollpack-cz-omgzine.html
-* [https://knedle.github.io/trollpacks/proruske-narativy-ukrajina.html](https://knedle.github.io/trollpacks/proruske-narativy-ukrajina.html)
+* [Trollpack CZ](https://knedle.github.io/trollpacks/trollpack-cz.html)
+* [Trollpack SK](https://knedle.github.io/trollpacks/trollpack-sk.html)
+* [Trollpack CZ OMGZine](https://knedle.github.io/trollpacks/trollpack-cz-omgzine.html)
+* [Proruské narativy - Ukrajina](https://knedle.github.io/trollpacks/proruske-narativy-ukrajina.html)
 
 
