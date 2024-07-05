@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Nejobvyklejší praktiky dezinformátorů v diskuzích">
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by knedle (http://jsbin.com/maqamal/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>Nejobvyklejší praktiky dezinformátorů v diskuzích</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style id="jsbin-css">
+#capture { width: 400px; }
+
+#captureFull { width: 410px; }
+</style>
+</head>
+<body>
+  <div id="captureFull">
+    <h2>Ruské narativy:</h2>
+    <div id="capture">
+<label><input type="checkbox">umělá/neexistující Ukrajina</input></label><br>
+<label><input type="checkbox">Ukrajina - korupce/fašismus/loutka</input></label><br>
+<label><input type="checkbox">nacisté z Azova</input></label><br>
+<label><input type="checkbox">genocida ruskoého obyvatelstva</input></label><br>
+<label><input type="checkbox">požár Domu odborů v Oděse</input></label><br>
+<label><input type="checkbox">Alej Andělů v Doněcku</input></label><br>
+<label><input type="checkbox">12 tisíc mrtvých na Donbase</input></label><br>
+<label><input type="checkbox">sankce na Rusko nefungují</input></label><br>
+<label><input type="checkbox">sankce poškozují ČR/EU</input></label><br>
+<label><input type="checkbox">ukrajinci nám berou práci/peníze</input></label><br>
+<label><input type="checkbox">peníze pro Ukrajinu mohli jít Čechům</input></label><br>
+<label><input type="checkbox">USA NATO EU donutily Rusko k útoku na Ukrajinu</input></label><br>
+<label><input type="checkbox">USA NATO EU bojují do posledního ukrajince</input></label><br>
+<label><input type="checkbox">vyzbrojování Ukrajiny je podpora války</input></label><br>
+<label><input type="checkbox">Rusko nemůže prohrát/nikdy neprohrálo</input></label><br>
+<label><input type="checkbox">všichni chtějí do BRICS/překoná EU/USA</input></label><br>
+</div>
+
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s 'Nejobvyklejší...' " />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<a id="downloadLink"></a>
+  
+<script>
+$(document).ready(function(){
+  
+  $("input[type=checkbox]").on('change', function(){
+    
+    if ($(this).is(':checked')){      
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+$("#downloadImg").on('click', function() {
+  
+html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'nejobvyklejsi-proruske-narativy.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});
+  
+$("#downloadImgFull").on('click', function() {
+  
+html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'nejobvyklejsi-proruske-narativy.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});  
+  
+  });
+</script>
+
+</body>
+</html>
