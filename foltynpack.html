@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Ruské narativy k válce na Ukrajině">
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
 
+Copyright (c) 2022 by knedle (http://jsbin.com/maqamal/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>Ruské narativy k válce na Ukrajině</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style id="jsbin-css">
+#capture { width: 400px; }
+
+#captureFull { width: 410px; }
+</style>
+</head>
+<body>
+  <div id="captureFull">
+    <h2>Foltýnův výběr:</h2>    
+    <div id="capture">
+      <p>Podporuji současné Rusko a jsem:</p>
+<label><input type="checkbox">nešťastný</input></label><br>
+<label><input type="checkbox">zapšklý</input></label><br>
+<label><input type="checkbox">zahořklý</input></label><br>
+<label><input type="checkbox">smutný</input></label><br>
+<label><input type="checkbox">opuštěný</input></label><br>
+<label><input type="checkbox">mající životní smůlu</input></label><br>
+<label><input type="checkbox">svině</input></label><br>
+</div>
+
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s 'Foltýnův výběr...' " />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<a id="downloadLink"></a>
+  
+<script>
+$(document).ready(function(){
+  
+  $("input[type=checkbox]").on('change', function(){
+    
+    if ($(this).is(':checked')){      
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+$("#downloadImg").on('click', function() {
+  
+html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'foltynuv-vyber.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});
+  
+$("#downloadImgFull").on('click', function() {
+  
+html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'foltynuv-vyber.png');
+      $('#downloadLink')[0].click();
+    });
+  
+  
+});  
+  
+  });
+</script>
+
+</body>
+</html>
