@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bias Pack – rozšířený OMGzine</title>
+<style>
+  body { font-family: sans-serif; }
+  #captureFull { width: 700px; }
+  .section-title { font-weight: bold; font-size: 1.2em; margin-top: 20px; }
+  label { display: block; margin: 5px 0; }
+  .desc { display: none; margin-left: 1.5em; font-style: italic; font-size: 0.95em; color: #444; }
+  input[type=checkbox]:checked + span + .desc { display: block; }
+</style>
+</head>
+<body>
+<div id="captureFull">
+  <h2>Kognitivní zkreslení, logické klamy a další faktory</h2>
 
+  <div id="capture">
+
+    <div class="section-title">1. Kognitivní zkreslení (biasy)</div>
+
+    <label><input type="checkbox"><span>a) Potvrzovací zkreslení</span><div class="desc">Lidé vyhledávají a preferují informace, které potvrzují jejich stávající přesvědčení, a ignorují nebo odmítají informace, které jim odporují.</div></label>
+    <label><input type="checkbox"><span>b) Zkreslení zpětného pohledu</span><div class="desc">Po události mají lidé tendenci věřit, že výsledek byl předvídatelný, což posiluje víru, že existovalo spiknutí.</div></label>
+    <label><input type="checkbox"><span>c) Proporční omyl</span><div class="desc">Lidé věří, že velké události musí mít velké příčiny – např. útoky z 11. září musely být podle nich dílem velkého spiknutí.</div></label>
+    <label><input type="checkbox"><span>d) Iluzorní korelace</span><div class="desc">Tendence vnímat souvislosti mezi jevy, které spolu nesouvisejí, např. očkování a autismus.</div></label>
+    <label><input type="checkbox"><span>e) Efekt Dunning-Kruger</span><div class="desc">Lidé s nízkou znalostí přeceňují své schopnosti a odmítají expertní pohled.</div></label>
+
+    <div class="section-title">2. Psychologické a emocionální faktory</div>
+
+    <label><input type="checkbox"><span>a) Potřeba kontroly</span><div class="desc">V nejistém světě lidé hledají jednoduchá vysvětlení a konspirace jim snižují úzkost.</div></label>
+    <label><input type="checkbox"><span>b) Nedůvěra k autoritám</span><div class="desc">Nedůvěra v instituce vede k víře v alternativní zdroje a teorie.</div></label>
+    <label><input type="checkbox"><span>c) Potřeba výjimečnosti</span><div class="desc">Víra, že vidím „pravdu“, kterou ostatní nevidí, dává pocit výjimečnosti.</div></label>
+
+    <div class="section-title">3. Logické chyby (fallacies)</div>
+
+    <label><input type="checkbox"><span>a) Argument z neznalosti</span><div class="desc">„Nikdo neprokázal, že to není pravda, takže to může být pravda.“</div></label>
+    <label><input type="checkbox"><span>b) Falešná kauzalita</span><div class="desc">Záměna korelace za příčinu: „Po očkování jsem onemocněl – očkování to způsobilo.“</div></label>
+    <label><input type="checkbox"><span>c) Slaměný panák</span><div class="desc">Zkreslení pozice druhé strany k jejímu snadnému vyvrácení.</div></label>
+    <label><input type="checkbox"><span>d) Ad hominem</span><div class="desc">Útok na osobu místo věcné argumentace: „To říká člověk placený farmaceutickou firmou.“</div></label>
+
+    <div class="section-title">4. Sociální a technologické vlivy</div>
+
+    <label><input type="checkbox"><span>a) Echokomory a algoritmy</span><div class="desc">Sítě posilují názory tím, že ukazují podobný obsah a vytvářejí iluzi konsenzu.</div></label>
+    <label><input type="checkbox"><span>b) Skupinová polarizace</span><div class="desc">Diskuze v uzavřených skupinách vedou k extrémnějším postojům a radikalizaci.</div></label>
+
+    <p style="margin-top:20px;font-weight:bold">Lidé věřící a šířící dezinformace nejsou nutně hloupí – často jde o důsledek přirozeného fungování psychiky a prostředí.</p>
+  </div>
+</div>
+
+<p>
+  <input type="button" id="downloadImg" value="generuj do obrázku" />
+  <input type="button" id="downloadImgFull" value="generuj do obrázku s titulkem" />
+</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<a id="downloadLink"></a>
+<script>
+$(document).ready(function(){
+  $("input[type=checkbox]").on('change', function(){
+    if ($(this).is(':checked')) {
+      $(this).closest('label').css('color','red');
+    } else {
+      $(this).closest('label').css('color','black');
+    }
+  });
+
+  $("#downloadImg").on('click', function() {
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'bias-pack.png');
+      $('#downloadLink')[0].click();
+    });
+  });
+
+  $("#downloadImgFull").on('click', function() {
+    html2canvas(document.querySelector("#captureFull")).then(canvas => {
+      $('#downloadLink').attr('href', canvas.toDataURL("image/png"));
+      $('#downloadLink').attr('download', 'bias-pack-full.png');
+      $('#downloadLink')[0].click();
+    });
+  });
+});
+</script>
+</body>
+</html>
